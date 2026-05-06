@@ -1,7 +1,5 @@
 package project02_banking_system;
 
-import com.bank.logic.Account;
-
 public class Main {
     public static void main(String[] args) {
         // This is where you test your com.bank.logic.Account
