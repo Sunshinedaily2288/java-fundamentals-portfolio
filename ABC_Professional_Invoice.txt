@@ -1,0 +1,26 @@
+=============================================================
+                JAVA DEVELOPER PORTFOLIO LTD.                
+                123 Code Street, Vienna, Austria             
+                Email: billing@portfolio.com                 
+=============================================================
+BILL TO: ABC
+ADDRESS: ABC Street, 12345, USA
+-------------------------------------------------------------
+CUSTOMER NO: 597784          | DATE: 2026-05-08
+DELIVERY   : Courier
+-------------------------------------------------------------
+| DESCRIPTION          | QTY   | UNIT       | NET        |
+-------------------------------------------------------------
+| billy bookcase       | 500   | $255.00    | $127500.00 |
+-------------------------------------------------------------
+SUBTOTAL (NET):                             $127500.00
+VAT (5%):                                   $6375.00  
+GRAND TOTAL (GROSS):                        $133875.00
+=============================================================
+
+
+
+   _________________________          _________________________
+      Authorized Signature                Customer Signature   
+
+   Thank you for your business! Please quote INV-597784 in payments.
