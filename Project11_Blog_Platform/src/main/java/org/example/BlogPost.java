@@ -13,10 +13,16 @@ public class BlogPost {
         this.date = LocalDateTime.now();
     }
 
+    // ADD THESE SO SPRING CAN READ THE DATA
+    public String getTitle() { return title; }
+    public String getContent() { return content; }
+    public LocalDateTime getDate() { return date; }
+
     @Override
     public String toString() {
         return "[" + date + "] " + title.toUpperCase() + "\n" + content;
     }
 }
+
 
 
