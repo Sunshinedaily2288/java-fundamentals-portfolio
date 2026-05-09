@@ -9,4 +9,7 @@
 * **Project 06**: Currency Exchange (Logic & GUI Separation)
 * **Project 07**: Math Statistics Tool (Arrays & Loops)
 * **Project 08**: Number Guessing Game (Random Class & Logic)
-
+* **Project 09**: Business Invoice with client details
+* **Project 10**: Snake Game navigation
+* **Project 11**: Web Blog API with Maven
+* **Project 12**: TicTacToe 3x3 with instruction for players plus GUI and Interface pop up
