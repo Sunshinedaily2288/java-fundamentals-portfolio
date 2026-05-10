@@ -16,3 +16,5 @@
 * **Project 12**: TicTacToe 3x3 with instruction for players plus GUI and Interface pop up
 * **Project 13**: Sudoku 4x4 (Logic, Grids & Interactive GUI)
 * **Project 14**: User Role Management (GUI, Secure Access Control & Audit Logging)
+* **Project 15**: Business Tax & Discount Engine (Tiered `if-else` Logic & Financial Math)
+    
