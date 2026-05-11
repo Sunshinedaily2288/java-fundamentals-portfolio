@@ -1,4 +1,4 @@
-package project16_com.store.inventory;
+package project16_inventory;
 
 public class InventoryManager {
     public static void main(String[] args) {
