@@ -20,3 +20,6 @@
 * **Project 16**: (Grades & Inventory): Mastered 1D Arrays, Parallel Arrays, and Object Arrays
 * **Project 17**: (Cinema Booking): Conquered 2D Arrays and built your first clickable Grid GUI
 * **Project 18**: (Security Tools): Tackled String manipulation, random logic, and a dynamic Label GUI
+* **Project 19**: (Document Management): Practiced Object-Oriented Structure and list handling for file metadata tracking
+* **Project 20**: (Instant Messaging Simulation): Built an Interactive Chatbot with a Keyword-Response "brain" and a real-time GUI pop-up
+* **Project 21**: (Appointment Scheduler): Developed a hospital booking system featuring a custom Dropdown Calendar Picker and session-based data storage
