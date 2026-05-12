@@ -17,4 +17,6 @@
 * **Project 13**: Sudoku 4x4 (Logic, Grids & Interactive GUI)
 * **Project 14**: User Role Management (GUI, Secure Access Control & Audit Logging)
 * **Project 15**: Business Tax & Discount Engine (Tiered `if-else` Logic & Financial Math)
-    
+* **Project 16**: (Grades & Inventory): Mastered 1D Arrays, Parallel Arrays, and Object Arrays
+* **Project 17**: (Cinema Booking): Conquered 2D Arrays and built your first clickable Grid GUI
+* **Project 18**: (Security Tools): Tackled String manipulation, random logic, and a dynamic Label GUI
