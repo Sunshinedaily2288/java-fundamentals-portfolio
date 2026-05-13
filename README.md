@@ -21,5 +21,6 @@
 * **Project 17**: Cinema Booking with 2D Arrays and built your first clickable Grid GUI
 * **Project 18**: Security Tools through String manipulation, random logic, and a dynamic Label GUI
 * **Project 19**: Document Management with Object-Oriented Structure and list handling for file metadata tracking
-* **Project 20**: Instant Messaging Simulation with Simple Dialog-Chatbox with a Keyword-Response "brain" + real-time GUI pop-up
+* **Project 20**: Instant Messaging * with Simple Dialog-Chatbox with a Keyword-Response "brain" + real-time GUI pop-up
 * **Project 21**: Appointment Scheduler with custom Dropdown Calendar Picker and session-based data storage
+* **Project 22**: LMS 2class architecture with student list in-memory mapping using Hashmap
