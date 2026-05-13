@@ -5,7 +5,7 @@
 ---
 
 ## 📌 Project Architecture
-Welcome to my core Java portfolio. This single, unified repository contains production-ready scripts, algorithmic components, and functional Graphical User Interfaces (GUIs) developed during my **Computer Science qualification pathway at FH Campus Wien**.
+Welcome to my core Java portfolio. This single, unified repository contains production-ready scripts, algorithmic components, and functional Graphical User Interfaces (GUIs) developed during my **Computer Science qualification pathway at FHCampus University of Applied Science Vienna**.
 
 Rather than working with unorganized, flat directories, this repository demonstrates enterprise-ready code governance by organizing applications into three distinct, domain-specific Java packages.
 
@@ -13,7 +13,7 @@ Rather than working with unorganized, flat directories, this repository demonstr
 
 ## 📂 Structural Package Blueprint
 
-### 1. ⚙️ Enterprise Logistics (`com.noorbi.enterprise.logistics`)
+### 1. ⚙️ Enterprise Logistics (`com.matharsa.enterprise.logistics`)
 *Focuses on high-accuracy data structures, computational calculations, inventory systems, and transactional logic streams.*
 * **`accounting`** – Comprehensive balance validation architecture simulating banking ledgers.
 * **`atm_engine`** – Console interface input/output validation workflow for core transactions.
@@ -24,7 +24,7 @@ Rather than working with unorganized, flat directories, this repository demonstr
 * **`lms_mapping`** – Fast record retrieval index built using the Java Collections Framework (`HashMap`).
 * **`content_aggregator`** – Chronological sorting and dynamic list filtration application engine.
 
-### 2. 🖥️ GUI & System Security (`com.noorbi.gui.security`)
+### 2. 🖥️ GUI & System Security (`com.matharsa.gui.security`)
 *Focuses on asynchronous input parsing, layout managers, identity validation routines, and the Model-View-Controller (MVC) design pattern.*
 * **`atm_swing`** – User interface component transitioning console input models into a visual GUI.
 * **`login_validation`** – Secure authentication checkpoint utilizing safe character array parsing (`JPasswordField`).
@@ -35,7 +35,7 @@ Rather than working with unorganized, flat directories, this repository demonstr
 * **`string_manipulation`** – Data validation utility executing secure text sanitization routines.
 * **`scheduler_calendar`** – Form tracker utilizing interactive drop-down configuration states.
 
-### 3. 📊 Core Algorithms & Microservices (`com.noorbi.algorithms.microservices`)
+### 3. 📊 Core Algorithms & Microservices (`com.matharsa.algorithms.microservices`)
 *Focuses on automation tools, build configurations, conditional loops, and coordinate backtracking methods.*
 * **`blog_api`** – Microservice backend structure running unified build automation via Maven dependencies.
 * **`sudoku_backtracking`** – Constraint evaluation game grid engine deploying nested iterative loop architectures.
