@@ -24,3 +24,4 @@
 * **Project 20**: Instant Messaging * with Simple Dialog-Chatbox with a Keyword-Response "brain" + real-time GUI pop-up
 * **Project 21**: Appointment Scheduler with custom Dropdown Calendar Picker and session-based data storage
 * **Project 22**: LMS 2class architecture with student list in-memory mapping using Hashmap
+* **Project 23**: Live content aggregator feed system with article record and in-memory chronological content aggregator
