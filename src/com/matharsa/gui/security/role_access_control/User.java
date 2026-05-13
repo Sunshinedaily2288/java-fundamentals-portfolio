@@ -1,4 +1,4 @@
-package role_access_control;
+package com.matharsa.gui.security.role_access_control;
 
 public class User {
     // 1. Variables (Ingredients)

@@ -1,4 +1,4 @@
-package com.matharsa.algorithms.chatbox_logic;
+package com.matharsa.algorithms.microservices.chatbox_logic;
 
 import javax.swing.JOptionPane;
 

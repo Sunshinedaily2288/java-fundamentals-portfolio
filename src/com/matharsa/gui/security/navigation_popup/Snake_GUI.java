@@ -1,4 +1,4 @@
-package navigation_popup;
+package com.matharsa.gui.security.navigation_popup;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package tax_calculator;
+package com.matharsa.enterprise.logistics.tax_calculator;
 
 import java.util.Scanner;
 

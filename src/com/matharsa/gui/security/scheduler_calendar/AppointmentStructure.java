@@ -1,4 +1,4 @@
-package scheduler_calendar;
+package com.matharsa.gui.security.scheduler_calendar;
 
 public class AppointmentStructure {
     String patientName;

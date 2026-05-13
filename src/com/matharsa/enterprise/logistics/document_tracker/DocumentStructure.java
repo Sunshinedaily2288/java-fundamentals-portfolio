@@ -1,4 +1,4 @@
-package project19.document.management;
+package com.matharsa.enterprise.logistics.document_tracker;
 
 public class DocumentStructure {
     String name;

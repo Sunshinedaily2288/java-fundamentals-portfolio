@@ -1,4 +1,4 @@
-package project09.business.invoicing;
+package com.matharsa.enterprise.logistics.invoicing;
 
 import java.util.Scanner;
 import java.io.*;

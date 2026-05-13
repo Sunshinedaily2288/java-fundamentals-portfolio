@@ -1,4 +1,4 @@
-package project16.inventory;
+package com.matharsa.enterprise.logistics.inventory_arrays;
 
 public class InventoryManager {
     public static void main(String[] args) {

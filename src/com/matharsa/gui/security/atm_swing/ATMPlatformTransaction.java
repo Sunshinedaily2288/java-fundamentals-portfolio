@@ -1,4 +1,4 @@
-package atm_swing;
+package com.matharsa.gui.security.atm_swing;
 
 public class ATMPlatformTransaction {
     private double balance;

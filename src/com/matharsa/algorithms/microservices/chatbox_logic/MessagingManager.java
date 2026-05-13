@@ -1,4 +1,4 @@
-package com.matharsa.algorithms.chatbox_logic;
+package com.matharsa.algorithms.microservices.chatbox_logic;
 
 import java.util.ArrayList;
 import java.util.List;

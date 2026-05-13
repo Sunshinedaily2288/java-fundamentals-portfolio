@@ -1,4 +1,4 @@
-package project22.lms;
+package com.matharsa.enterprise.logistics.lms_mapping;
 
 import javax.swing.*;
 import java.awt.*;

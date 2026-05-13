@@ -1,4 +1,4 @@
-package role_access_control;
+package com.matharsa.gui.security.role_access_control;
 
 // WHAT: An Enum (Enumeration)
 // WHY: To ensure only these three specific roles can ever be used.

@@ -1,4 +1,4 @@
-package cinema_booking;
+package com.matharsa.gui.security.cinema_booking;
 import javax.swing.*;
 import java.awt.*;
 

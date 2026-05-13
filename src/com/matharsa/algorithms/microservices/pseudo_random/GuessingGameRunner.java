@@ -1,4 +1,4 @@
-package com.matharsa.algorithms.pseudo_random;
+package com.matharsa.algorithms.microservices.pseudo_random;
 
 public class GuessingGameRunner {
     public static void main(String[] args) {

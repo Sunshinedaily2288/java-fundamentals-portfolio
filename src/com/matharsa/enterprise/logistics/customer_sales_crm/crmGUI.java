@@ -1,4 +1,4 @@
-package com.matharsa.algorithms.customer_sales_crm;
+package com.matharsa.enterprise.logistics.customer_sales_crm;
 
 import javax.swing.*;
 import java.awt.*;

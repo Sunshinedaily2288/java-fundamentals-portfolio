@@ -1,4 +1,4 @@
-package project03.atm.banking;
+package com.matharsa.enterprise.logistics.banking;
 
 public class AccountServiceRunner {
     public static void main(String[] args) {

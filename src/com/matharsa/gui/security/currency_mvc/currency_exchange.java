@@ -1,4 +1,4 @@
-package currency_mvc;
+package com.matharsa.gui.security.currency_mvc;
 
 public class currency_exchange {
     // 1. Move your rates here so the methods can see them

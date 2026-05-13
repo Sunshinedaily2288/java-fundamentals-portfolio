@@ -1,4 +1,4 @@
-package string_manipulation;
+package com.matharsa.gui.security.string_manipulation;
 import javax.swing.*;
 import java.awt.*;
 

@@ -1,4 +1,4 @@
-package com.matharsa.algorithms.statistical_loops;
+package com.matharsa.algorithms.microservices.statistical_loops;
 
 import javax.swing.JOptionPane;
 

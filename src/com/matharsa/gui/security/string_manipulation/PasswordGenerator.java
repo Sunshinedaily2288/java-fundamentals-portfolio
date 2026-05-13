@@ -1,4 +1,4 @@
-package string_manipulation;
+package com.matharsa.gui.security.string_manipulation;
 
 public class PasswordGenerator {
         public static void main(String[] args) {

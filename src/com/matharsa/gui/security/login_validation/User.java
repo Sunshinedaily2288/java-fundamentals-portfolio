@@ -1,4 +1,4 @@
-package login_validation;
+package com.matharsa.gui.security.login_validation;
 
 public class User {
     private String username = "Admin";

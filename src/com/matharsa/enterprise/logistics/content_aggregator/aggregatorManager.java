@@ -1,4 +1,4 @@
-package project23.news.headline.feed.services;
+package com.matharsa.enterprise.logistics.content_aggregator;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

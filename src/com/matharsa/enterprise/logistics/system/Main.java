@@ -1,4 +1,4 @@
-package project02.banking.system;
+package com.matharsa.enterprise.logistics.system;
 
 public class Main {
     public static void main(String[] args) {

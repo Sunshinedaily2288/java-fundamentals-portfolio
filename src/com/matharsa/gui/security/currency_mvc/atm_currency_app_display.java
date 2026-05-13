@@ -1,4 +1,4 @@
-package currency_mvc;
+package com.matharsa.gui.security.currency_mvc;
 
 public class atm_currency_app_display {
     public static void main(String[] args) {

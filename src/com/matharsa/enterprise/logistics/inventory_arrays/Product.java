@@ -1,4 +1,4 @@
-package project16.inventory;
+package com.matharsa.enterprise.logistics.inventory_arrays;
 
 public class Product {
     // These are the "fields" or "attributes" of our product

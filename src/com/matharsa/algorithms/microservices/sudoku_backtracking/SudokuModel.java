@@ -1,4 +1,4 @@
-package com.matharsa.algorithms.sudoku_backtracking;
+package com.matharsa.algorithms.microservices.sudoku_backtracking;
 
 public class SudokuModel {
     private final int SIZE = 4;

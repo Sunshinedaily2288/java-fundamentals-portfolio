@@ -1,4 +1,4 @@
-package com.matharsa.algorithms.sudoku_backtracking;
+package com.matharsa.algorithms.microservices.sudoku_backtracking;
 
 public class SudokuEngine {
     private SudokuModel model = new SudokuModel();

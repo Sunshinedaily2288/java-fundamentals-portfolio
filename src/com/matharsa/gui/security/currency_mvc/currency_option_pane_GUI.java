@@ -1,4 +1,4 @@
-package currency_mvc;
+package com.matharsa.gui.security.currency_mvc;
 
 import javax.swing.JOptionPane;
 

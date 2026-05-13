@@ -1,4 +1,4 @@
-package com.matharsa.algorithms.budget_scanner;
+package com.matharsa.algorithms.microservices.budget_scanner;
 
 import java.util.Scanner;
 

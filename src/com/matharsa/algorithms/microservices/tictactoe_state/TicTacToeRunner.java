@@ -1,4 +1,4 @@
-package com.matharsa.algorithms.tictactoe_state;
+package com.matharsa.algorithms.microservices.tictactoe_state;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package com.matharsa.algorithms.tictactoe_state;
+package com.matharsa.algorithms.microservices.tictactoe_state;
 
 public class TicTacToeEngine {
     private TicTacToeModel model;
