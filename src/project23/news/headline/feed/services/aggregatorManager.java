@@ -1,4 +1,4 @@
-package project23.aggregrator;
+package project23.news.headline.feed.services;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

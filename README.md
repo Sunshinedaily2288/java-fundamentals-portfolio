@@ -25,3 +25,4 @@
 * **Project 21**: Appointment Scheduler with custom Dropdown Calendar Picker and session-based data storage
 * **Project 22**: LMS 2class architecture with student list in-memory mapping using Hashmap
 * **Project 23**: Live content aggregator feed system with article record and in-memory chronological content aggregator
+* **Project 24**: Customer Sales Interaction Tracker (CRM history logging processing layers (Maps) and  (Swing JFrame) 

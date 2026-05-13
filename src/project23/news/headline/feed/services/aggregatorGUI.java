@@ -1,4 +1,4 @@
-package project23.aggregrator;
+package project23.news.headline.feed.services;
 
 import javax.swing.*;
 import java.awt.*;
