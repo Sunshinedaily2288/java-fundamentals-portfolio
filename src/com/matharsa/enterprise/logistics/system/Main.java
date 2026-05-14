@@ -2,7 +2,7 @@ package com.matharsa.enterprise.logistics.system;
 
 public class Main {
     public static void main(String[] args) {
-        // This is where you test your com.bank.logic.Account
+        // This is where you test your com.com.matharsa.enterprise.logistics.payroll.logic.Account
         Account myAccount = new Account("12345", "Your Name", 500.0);
         System.out.println("Starting Balance: " + myAccount.getBalance());
 

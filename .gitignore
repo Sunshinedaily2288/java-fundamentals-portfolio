@@ -31,3 +31,9 @@ bin/
 .DS_Store
 # End of portfolio ignore parameters
 /out/
+# Local Transaction Ledger Storage Archives
+*.csv
+*.db
+
+# Generated Financial Artifacts and Receipts
+receipt_emp_*.txt
