@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Telemetry Inventory Matrix</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #334155; margin: 0; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
+        h1 { color: #0284c7; font-size: 2.5rem; margin: 0 0 10px 0; font-weight: 800; letter-spacing: -0.025em; }
+
+        /* Active Input Form Layout Grid */
+        .form-card { background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; margin-bottom: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .grid-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        @media (max-width: 640px) { .grid-inputs { grid-template-columns: 1fr; } }
+        .form-group { display: flex; flex-direction: column; margin-bottom: 12px; }
+        label { font-weight: 700; font-size: 0.75rem; margin-bottom: 6px; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; }
+        input, select { background: #ffffff; color: #0f172a; border: 1px solid #cbd5e1; padding: 10px 14px; border-radius: 8px; font-size: 0.95rem; outline: none; box-sizing: border-box; width: 100%; }
+        input:focus, select:focus { border-color: #0284c7; box-shadow: 0 0 0 2px rgba(2,132,199,0.15); }
+        button.btn-primary { background: #0284c7; color: white; border: none; padding: 12px; font-size: 0.95rem; font-weight: 600; border-radius: 8px; cursor: pointer; width: 100%; transition: background 0.2s; text-transform: uppercase; letter-spacing: 0.05em; }
+        button.btn-primary:hover { background: #0369a1; }
+
+        /* Table Spreadsheet Data Layout Grid */
+        .table-container { background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+        th { background: #f1f5f9; color: #0369a1; padding: 16px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; border-bottom: 1px solid #e2e8f0; }
+        td { padding: 16px; border-bottom: 1px solid #e2e8f0; color: #475569; }
+        tr:hover { background: #f8fafc; }
+
+        .asset-name { font-weight: 700; color: #0f172a; }
+        .model-code { font-family: monospace; color: #0284c7; background: #e0f2fe; padding: 4px 8px; border-radius: 4px; font-weight: 600; }
+
+        .badge { font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 6px; text-transform: uppercase; display: inline-block; }
+        .status-ready { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .status-maint { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+        .status-flight { background: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
+        .status-decom { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+
+        button.btn-delete { background: #fff5f5; color: #e11d48; border: 1px solid #fecdd3; padding: 6px 12px; font-size: 0.8rem; font-weight: 600; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        button.btn-delete:hover { background: #e11d48; color: white; border-color: #e11d48; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Space Telemetry Inventory Matrix</h1>
+        <p style="color: #64748b; margin: 0;">Synchronized Cargo Management & Registry Tracking Pipeline.</p>
+    </header>
+
+    <!-- Fully Active Registration Form Block -->
+    <div class="form-card">
+        <div class="grid-inputs">
+            <div class="form-group">
+                <label>Asset Nomenclature / Name</label>
+                <input type="text" id="assetName" placeholder="e.g., Falcon Thruster X1">
+            </div>
+            <div class="form-group">
+                <label>Model Identifier</label>
+                <input type="text" id="modelNumber" placeholder="e.g., NX-9942">
+            </div>
+            <div class="form-group">
+                <label>Operational Department</label>
+                <select id="department">
+                    <option value="Propulsion">Propulsion</option>
+                    <option value="Life Support">Life Support</option>
+                    <option value="Navigation">Navigation</option>
+                    <option value="Communications">Communications</option>
+                    <option value="Exochemistry">Exochemistry</option>
+                </select>
+            </div>
+        </div>
+        <div class="grid-inputs">
+            <div class="form-group">
+                <label>Units Quantity</label>
+                <input type="number" id="quantity" value="1" min="1">
+            </div>
+            <div class="form-group">
+                <label>Launch Registry Status</label>
+                <select id="conditionStatus">
+                    <option value="Ready for Launch">Ready for Launch</option>
+                    <option value="In Flight">In Flight</option>
+                    <option value="Maintenance Required">Maintenance Required</option>
+                    <option value="Decommissioned">Decommissioned</option>
+                </select>
+            </div>
+            <div class="form-group" style="justify-content: flex-end;">
+                <button onclick="registerAsset()" class="btn-primary">Register Asset Log</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Asset Name / Nomenclature</th>
+                <th>Model ID</th>
+                <th>Department</th>
+                <th>Qty</th>
+                <th>Operational Status</th>
+                <th style="text-align: center;">Actions</th>
+            </tr>
+            </thead>
+            <tbody id="inventoryTableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const API_URL = 'http://localhost:8082/api/inventory';
+
+    // GET request pipeline logic
+    async function loadAssets() {
+        try {
+            const response = await fetch(API_URL);
+            const assets = await response.json();
+            const tbody = document.getElementById('inventoryTableBody');
+            tbody.innerHTML = '';
+
+            if (assets.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: #94a3b8; padding: 40px 0;">Cargo bay completely empty.</td></tr>`;
+                return;
+            }
+
+            assets.forEach(asset => {
+                let statusClass = 'status-decom';
+                if (asset.conditionStatus === 'Ready for Launch') statusClass = 'status-ready';
+                if (asset.conditionStatus === 'Maintenance Required') statusClass = 'status-maint';
+                if (asset.conditionStatus === 'In Flight') statusClass = 'status-flight';
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="asset-name">${asset.assetName}</td>
+                        <td><span class="model-code">${asset.modelNumber}</span></td>
+                        <td>${asset.department}</td>
+                        <td style="font-weight: 600; color: #0f172a;">${asset.quantity}</td>
+                        <td><span class="badge ${statusClass}">${asset.conditionStatus}</span></td>
+                        <td style="text-align: center;">
+                            <button onclick="deleteAsset(${asset.id})" class="btn-delete">Purge</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        } catch (err) {
+            console.error("Error connecting to telemetry server:", err);
+        }
+    }
+
+    // POST request pipeline logic mapping action
+    async function registerAsset() {
+        const assetName = document.getElementById('assetName').value;
+        const modelNumber = document.getElementById('modelNumber').value;
+        const department = document.getElementById('department').value;
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const conditionStatus = document.getElementById('conditionStatus').value;
+
+        if (!assetName || !modelNumber) {
+            alert("Please declare Asset Name and Model ID values!");
+            return;
+        }
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ assetName, modelNumber, department, quantity, conditionStatus })
+            });
+
+            if (response.ok) {
+                // Clear inputs form blocks
+                document.getElementById('assetName').value = '';
+                document.getElementById('modelNumber').value = '';
+                document.getElementById('quantity').value = '1';
+
+                // Force refresh grid view list elements state parameters
+                await loadAssets();
+            }
+        } catch (err) {
+            console.error("Error logging new asset row:", err);
+        }
+    }
+
+    // DELETE request pipeline logic mapping action
+    async function deleteAsset(id) {
+        if (!confirm("Execute hardware deployment purge sequence for this asset item?")) return;
+        try {
+            const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+            if (response.ok) {
+                await loadAssets(); // Refresh grid instantly after purge confirmation
+            }
+        } catch (err) {
+            console.error("Error parsing structural row remove action:", err);
+        }
+    }
+
+    window.onload = loadAssets;
+</script>
+</body>
+</html>
