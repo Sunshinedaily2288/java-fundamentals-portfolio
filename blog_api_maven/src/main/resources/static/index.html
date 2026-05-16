@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Maven Blog</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+        .post { background: #f4f4f9; padding: 15px; margin-bottom: 15px; border-radius: 5px; border-left: 5px solid #007bff; }
+        form { margin-bottom: 30px; display: flex; flex-direction: column; gap: 10px; }
+        input, textarea, button { padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+<h2>Create a Blog Post</h2>
+<form id="postForm">
+    <input type="text" id="title" placeholder="Post Title" required>
+    <textarea id="content" placeholder="Write your content here..." rows="4" required></textarea>
+    <button type="submit">Publish Post</button>
+</form>
+
+<h2>Recent Posts</h2>
+<div id="postsContainer"></div>
+
+<script>
+    const API_URL = 'http://localhost:8080/api/posts';
+
+    // Fetch and display posts
+    async function fetchPosts() {
+        const res = await fetch(API_URL);
+        const posts = await res.json();
+        const container = document.getElementById('postsContainer');
+        container.innerHTML = '';
+        posts.forEach(post => {
+            container.innerHTML += `
+                <div class="post">
+                    <h3>${post.title}</h3>
+                    <p>${post.content}</p>
+                </div>
+            `;
+        });
+    }
+
+    // Handle form submission
+    document.getElementById('postForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const title = document.getElementById('title').value;
+        const content = document.getElementById('content').value;
+
+        await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title, content })
+        });
+
+        document.getElementById('postForm').reset();
+        fetchPosts();
+    });
+
+    // Load posts on page start
+    fetchPosts();
+</script>
+</body>
+</html>

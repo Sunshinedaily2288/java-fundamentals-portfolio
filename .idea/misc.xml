@@ -5,6 +5,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Project11_Blog_Platform/pom.xml" />
+        <option value="$PROJECT_DIR$/inventory_sql_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/blog_api_maven/pom.xml" />
       </list>
     </option>
   </component>

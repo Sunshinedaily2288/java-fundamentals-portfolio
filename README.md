@@ -23,7 +23,7 @@ Rather than working with unorganized, flat directories, this repository demonstr
 * **`document_tracker`** – File metadata management tracking engine applying core Object-Oriented Design (OOD).
 * **`lms_mapping`** – Fast record retrieval index built using the Java Collections Framework (`HashMap`).
 * **`content_aggregator`** – Chronological sorting and dynamic list filtration application engine.
-* * **`payroll_statement_sql`** - Corporate salary management system with SQL integrated Model-View-Controller (MVC).
+* **`payroll_statement_sql`** - Corporate salary management system with SQL integrated Model-View-Controller (MVC).
 
 ### 2. 🖥️ GUI & System Security (`com.matharsa.gui.security`)
 *Focuses on asynchronous input parsing, layout managers, identity validation routines, and the Model-View-Controller (MVC) design pattern.*
