@@ -1,4 +1,4 @@
-package com.matharsa.web_blog;
+package com.matharsa.web_blog.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,12 +14,13 @@ public class BlogPost {
 
     private String title;
     private String content;
-
+    private String topic;
     public BlogPost() {}
 
-    public BlogPost(String title, String content) {
+    public BlogPost(String title, String content, String topic) {
         this.title = title;
         this.content = content;
+        this.topic = topic;
     }
 
     // Id Getter and Setter
@@ -33,4 +34,7 @@ public class BlogPost {
     // Content Getter and Setter
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
+    // Topic Getter and Setter
+    public String getTopic() { return topic; }
+    public void setTopic(String topic) { this.topic = topic; }
 }
