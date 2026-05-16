@@ -37,3 +37,4 @@ bin/
 
 # Generated Financial Artifacts and Receipts
 receipt_emp_*.txt
+**/target/
