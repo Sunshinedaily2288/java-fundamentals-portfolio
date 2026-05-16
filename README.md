@@ -4,58 +4,18 @@
 
 ---
 
-## 📌 Project Architecture
-Welcome to my core Java portfolio. This single, unified repository contains production-ready scripts, algorithmic components, and functional Graphical User Interfaces (GUIs) developed during my **Computer Science qualification pathway at FHCampus University of Applied Science Vienna**.
+## 📂 Multi-Module & Structural Package Blueprint
 
-Rather than working with unorganized, flat directories, this repository demonstrates enterprise-ready code governance by organizing applications into three distinct, domain-specific Java packages.
+This portfolio demonstrates an evolution from foundational algorithms to advanced multi-module enterprise systems utilizing distinct build automation tools.
 
----
+### 🚀 Full-Stack Web Modules & Databases (Root Directories)
+*   **🌐 blog_api_maven** – A persistent Web Blog platform built using the Maven lifecycle. Features a dynamic frontend dashboard styled with native modern CSS layouts, supporting **persistent H2 database storage (surviving server restarts)**, case-insensitive keyword filtering, and automated entry deletion.
+*   **📚 online_library_gradle** – A mock library management system built with Gradle and Kotlin DSL. Features automated, zero-configuration mocking pipelines powered by the `Datafaker` engine to instantly populate an in-memory H2 database with 50 randomized book sets accessible via REST API controllers.
+*   **🗄️ inventory_sql_maven** – Dedicated system integrating standalone custom relational data mappings.
 
-## 📂 Structural Package Blueprint
-
-### 1. ⚙️ Enterprise Logistics (`com.matharsa.enterprise.logistics`)
-*Focuses on high-accuracy data structures, computational calculations, inventory systems, and transactional logic streams.*
-* **`accounting`** – Comprehensive balance validation architecture simulating banking ledgers.
-* **`atm_engine`** – Console interface input/output validation workflow for core transactions.
-* **`invoice`** – Generation system processing composite billing details into commercial invoice layouts.
-* **`tax_calculator`** – Algorithmic evaluation engine handling multi-tiered operational business taxes.
-* **`inventory_arrays`** – Parallel and multi-dimensional object array structures managing asset allocation states.
-* **`document_tracker`** – File metadata management tracking engine applying core Object-Oriented Design (OOD).
-* **`lms_mapping`** – Fast record retrieval index built using the Java Collections Framework (`HashMap`).
-* **`content_aggregator`** – Chronological sorting and dynamic list filtration application engine.
-* **`payroll_statement_sql`** - Corporate salary management system with SQL integrated Model-View-Controller (MVC).
-
-### 2. 🖥️ GUI & System Security (`com.matharsa.gui.security`)
-*Focuses on asynchronous input parsing, layout managers, identity validation routines, and the Model-View-Controller (MVC) design pattern.*
-* **`atm_swing`** – User interface component transitioning console input models into a visual GUI.
-* **`login_validation`** – Secure authentication checkpoint utilizing safe character array parsing (`JPasswordField`).
-* **`currency_mvc`** – Structural decoupling separating data conversions from dynamic window view rendering.
-* **`navigation_popup`** – Event-handling layout engine managing component position states.
-* **`role_access_control`** – Permission-based identity system featuring support audit logging.
-* **`cinema_booking`** – Interactive, clickable button matrix mapped directly to an underlying 2D primitive integer array.
-* **`string_manipulation`** – Data validation utility executing secure text sanitization routines.
-* **`scheduler_calendar`** – Form tracker utilizing interactive drop-down configuration states.
-
-### 3. 📊 Core Algorithms & Microservices (`com.matharsa.algorithms.microservices`)
-*Focuses on automation tools, build configurations, conditional loops, and coordinate backtracking methods.*
-* **`blog_api`** – Microservice backend structure running unified build automation via Maven dependencies.
-* **`sudoku_backtracking`** – Constraint evaluation game grid engine deploying nested iterative loop architectures.
-* **`tictactoe_state`** – 2D vector coordinate manager verifying structural grid match scenarios.
-* **`statistical_loops`** – Numerical computing suite executing mathematical operations over arrays.
-* **`chatbox_logic`** – Stream text lookup system matching string queries with automated server responses.
-* **`pseudo_random`** – Evaluator computing structural bounds via core Java utility classes.
-* **`budget_scanner`** – Defensive command-line input validator handling unexpected user values cleanly.
+### 📦 Core Fundamental Packages ( com.matharsa.* )
+*   **⚙️ Enterprise Logistics** (`enterprise.logistics`) – High-accuracy data structures, balance validation banking ledgers (`accounting`), interactive ATM workflows (`atm_engine`), billing calculators, and MVC payroll statements.
+*   **🖥️ GUI & System Security** (`gui.security`) – Interactive graphical layouts using Java Swing, secure identity validators (`JPasswordField`), asynchronous events, and decoupled currency MVC models.
+*   **📊 Algorithms & Automation** (`algorithms.microservices`) – Game state grid checking, numerical computing over arrays, back-tracking search logic solvers (`sudoku`), and interactive terminal budget scanners.
 
 ---
-
-## 🛠️ Tech Stack & Tooling
-* **Language/Runtime:** Java SE (8 / 11 / 17)
-* **IDE & Project Build:** IntelliJ IDEA, Maven Lifecycle Automation
-* **Version Control Standards:** Git Workflow, Conventional Commits Framework
-
----
-
-## 📈 Technical Core Strengths
-* **Stack Trace Diagnosis:** Strong competency reading terminal execution streams to isolate the root lines of memory errors or `NullPointerException` failures.
-* **Defensive Development:** Focused on clean syntax naming, strict encapsulation variables, and small method scopes to prevent logical leaks.
-* **Rapid Adaptability:** Combines senior operational management and system testing experience with an active, hands-on path toward full-stack application development.
