@@ -4,18 +4,38 @@
 
 ---
 
-## 📂 Multi-Module & Structural Package Blueprint
+## 🚀 Software Engineering Evolution Matrix
 
-This portfolio demonstrates an evolution from foundational algorithms to advanced multi-module enterprise systems utilizing distinct build automation tools.
+This portfolio demonstrates an evolution from foundational computer science assignments to advanced, multi-module backend cloud microservices using diverse build automation tools and data persistence layers.
 
-### 🚀 Full-Stack Web Modules & Databases (Root Directories)
-*   **🌐 blog_api_maven** – A persistent Web Blog platform built using the Maven lifecycle. Features a dynamic frontend dashboard styled with native modern CSS layouts, supporting **persistent H2 database storage (surviving server restarts)**, case-insensitive keyword filtering, and automated entry deletion.
-*   **📚 online_library_gradle** – A mock library management system built with Gradle and Kotlin DSL. Features automated, zero-configuration mocking pipelines powered by the `Datafaker` engine to instantly populate an in-memory H2 database with 50 randomized book sets accessible via REST API controllers.
-*   **🗄️ inventory_sql_maven** – Dedicated system integrating standalone custom relational data mappings.
 
-### 📦 Core Fundamental Packages ( com.matharsa.* )
-*   **⚙️ Enterprise Logistics** (`enterprise.logistics`) – High-accuracy data structures, balance validation banking ledgers (`accounting`), interactive ATM workflows (`atm_engine`), billing calculators, and MVC payroll statements.
-*   **🖥️ GUI & System Security** (`gui.security`) – Interactive graphical layouts using Java Swing, secure identity validators (`JPasswordField`), asynchronous events, and decoupled currency MVC models.
-*   **📊 Algorithms & Automation** (`algorithms.microservices`) – Game state grid checking, numerical computing over arrays, back-tracking search logic solvers (`sudoku`), and interactive terminal budget scanners.
+| Core Foundational Track (Pure Java) | Upgraded Professional Module | Framework / Stack | Build System | Database / Engine |
+| :--- | :--- | :--- | :--- | :--- |
+| `enterprise.logistics` (Banking Console) | 🏦 **banking_ledger_maven** | Spring Boot 3.x | 🟦 **Maven (XML)** | Local File H2 SQL |
+| `algorithms.microservices` (Snake Logic) | 🎮 **snake_game_maven** | Spring Boot 3.x | 🟦 **Maven (XML)** | Local File H2 SQL |
+| `algorithms.microservices` (Blog Core) | 🌐 **blog_api_maven** | Spring Boot 3.x | 🟦 **Maven (XML)** | Local File H2 SQL |
+| `enterprise.logistics` (Data Mocking) | 📚 **online_library_gradle** | Spring Boot 3.x | 🐘 **Gradle (Kotlin)** | In-Memory RAM H2 |
+| `enterprise.logistics` (Inventory GUI) | 🚀 **inventory_sql_maven** | Spring Boot 3.x | 🟦 **Maven (XML)** | Local File H2 + Datafaker |
 
 ---
+
+## 📂 Structural Module Deep-Dive
+
+### 🏦 Banking Ledger Terminal (`banking_ledger_maven`)
+A secure, real-time transactional account accounting microservice mirroring enterprise banking architectures. Features automated calculations for asset volumes, strict currency validation parameters, an exception-handling gate to deny over-drafts, and a responsive data-table ledger streaming historical transaction audits with exact calendar timestamps.
+
+### 🎮 Retro Arcade Snake Matrix (`snake_game_maven`)
+An interactive web game mapping pure-algorithmic matrix grid navigation mechanics onto an HTML5 canvas layer. When a coordinate collision event registers (Game Over), the browser client fires an asynchronous background `POST` request to stream player initials and score metrics straight into a relational global top-10 leaderboard registry table.
+
+### 🚀 Space Equipment Telemetry Tracker (`inventory_sql_maven`)
+A high-utility telemetry inventory dashboard built to handle high-frequency cargo tracking. Powered by the `Datafaker` engine to automatically generate 50 unique spacecraft components on startup. Includes direct pipeline queries to filter components alphabetically (A-Z) and explicit delete hooks to purge items straight out of physical hard drive rows.
+
+### 📚 Dynamic Mock API Library Engine (`online_library_gradle`)
+A mock data processing engine showcasing automation under the modern Gradle ecosystem using Kotlin scripting. Generates randomized book datasets accessible via clean REST controllers, demonstrating zero-configuration mockup pipelines for fast integration testing.
+
+### 📦 Core University Package Archives (`com.matharsa.*`)
+*   **Enterprise Logistics (`enterprise.logistics`)** – Legacy console accounting ledgers, MVC payroll calculators, and decoupled structural assignments.
+*   **GUI Security Frameworks (`gui.security`)** – Interactive Swing window forms, secure password matching nodes, and layout decoupling patterns.
+*   **Algorithms & Automation (`algorithms.microservices`)** – Multi-dimensional coordinate arrays, backtracking matrix puzzle evaluations, and raw computational logic tracks.
+---
+
