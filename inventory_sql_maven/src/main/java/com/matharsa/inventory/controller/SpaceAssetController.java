@@ -1,4 +1,6 @@
 package com.matharsa.inventory.controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.matharsa.inventory.model.SpaceAsset;
 import com.matharsa.inventory.repository.SpaceAssetRepository;
@@ -25,5 +27,10 @@ public class SpaceAssetController {
     @DeleteMapping("/{id}")
     public void deleteAsset(@PathVariable Long id) {
         spaceAssetRepository.deleteById(id);
+    }
+
+    @PostMapping
+    public SpaceAsset createAsset(@RequestBody SpaceAsset asset) {
+        return spaceAssetRepository.save(asset);
     }
 }
