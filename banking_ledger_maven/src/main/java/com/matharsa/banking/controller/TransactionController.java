@@ -3,6 +3,10 @@ package com.matharsa.banking.controller;
 import com.matharsa.banking.model.Transaction;
 import com.matharsa.banking.repository.TransactionRepository;
 import org.springframework.web.bind.annotation.*;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
@@ -10,12 +14,12 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class TransactionController {
 
+    private static final String MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/846l75q0hggc31oca8ugs8l5inpwgzuf";
     private final TransactionRepository transactionRepository;
 
     public TransactionController(TransactionRepository transactionRepository) {
         this.transactionRepository = transactionRepository;
 
-        // Initialize account with a starting deposit balance if the ledger database file is empty on startup
         if (transactionRepository.count() == 0) {
             transactionRepository.save(new Transaction("Initial Repository Core Activation Deposit", 1000.00, 1000.00));
         }
@@ -49,6 +53,19 @@ public class TransactionController {
         double newBal = currentBal - amount;
 
         Transaction tx = new Transaction("ATM Electronic Cash Withdrawal", -amount, newBal);
+
+        // 🚀 Asynchronously stream transaction alerts straight to the Make cloud pipeline
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(MAKE_WEBHOOK_URL))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(
+                        String.format("{\"description\":\"%s\",\"amount\":%.2f,\"runningBalance\":%.2f}",
+                                tx.getDescription(), tx.getAmount(), tx.getRunningBalance())))
+                .build();
+
+        client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+
         return transactionRepository.save(tx);
     }
 }
