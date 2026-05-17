@@ -23,6 +23,11 @@ This portfolio demonstrates an evolution from foundational computer science assi
 
 ### 🏦 Banking Ledger Terminal (`banking_ledger_maven`)
 A secure, real-time transactional account accounting microservice mirroring enterprise banking architectures. Features automated calculations for asset volumes, strict currency validation parameters, an exception-handling gate to deny over-drafts, and a responsive data-table ledger streaming historical transaction audits with exact calendar timestamps.
+**Cloud Integration Upgrade:**
+- **Event-Driven Architecture**: Leverages standard HTTP networking protocols to stream transactional payloads out of the local Java environment instantly upon account mutations.
+- **Enterprise Data Routing**: Connected to a Make.com cloud routing fabric, splitting the incoming stream into dual simultaneous processing pipelines.
+- **Data Persistence Ledger**: Automatically structures and appends transaction metadata (exact timestamps, description strings, and calculated values) straight into a remote database ledger.
+- **Threshold Fraud Filtering**: Implements real-time conditional evaluation filters to detect high-value asset movements and automatically deploy targeted priority notification alerts.
 
 ### 🎮 Retro Arcade Snake Matrix (`snake_game_maven`)
 An interactive web game mapping pure-algorithmic matrix grid navigation mechanics onto an HTML5 canvas layer. When a coordinate collision event registers (Game Over), the browser client fires an asynchronous background `POST` request to stream player initials and score metrics straight into a relational global top-10 leaderboard registry table.
