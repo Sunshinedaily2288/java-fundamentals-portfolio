@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Hashing Engine</title>
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --accent: #38bdf8;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: var(--bg);
+            color: var(--text-main);
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 { font-size: 26px; font-weight: 700; margin: 0; color: var(--accent); }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .form-input {
+            padding: 12px 16px;
+            background: #0f172a;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 16px;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+        }
+
+        .btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 14px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .btn:hover { background: var(--primary-hover); }
+
+        .output-box {
+            margin-top: 30px;
+            background: #0f172a;
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .output-title { font-weight: 700; color: var(--accent); margin-bottom: 15px; font-size: 16px; }
+
+        .data-row {
+            margin-bottom: 12px;
+            font-family: monospace;
+            font-size: 13px;
+            word-break: break-all;
+        }
+
+        .data-label { color: var(--text-muted); font-weight: bold; display: block; margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>🛡️ SHA-256 Cryptographic Engine</h1>
+        <p style="color: var(--text-muted); margin: 6px 0 0 0;">Secure Password Registration & Unique Salting Interface</p>
+    </header>
+
+    <div class="form-group">
+        <label for="usernameField">Account Username</label>
+        <input type="text" id="usernameField" class="form-input" placeholder="e.g., admin_matharsa">
+    </div>
+
+    <div class="form-group">
+        <label for="passwordField">Plain Text Password (Min. 8 characters)</label>
+        <input type="password" id="passwordField" class="form-input" placeholder="Enter raw password string...">
+    </div>
+
+    <button class="btn" onclick="sendEncryptionRequest()">Encrypt Password Signature</button>
+
+    <div class="output-box" id="resultContainer">
+        <div class="output-title">🔐 Secure Database Entry Generated</div>
+
+        <div class="data-row">
+            <span class="data-label">USERNAME:</span>
+            <span id="outUser" style="color: #e2e8f0;"></span>
+        </div>
+        <div class="data-row">
+            <span class="data-label">RANDOMIZED SALT ARRAY (BASE64):</span>
+            <span id="outSalt" style="color: #fbbf24;"></span>
+        </div>
+        <div class="data-row">
+            <span class="data-label">CRYPTOGRAPHIC SHA-256 HASH HEX:</span>
+            <span id="outHash" style="color: #34d399;"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sendEncryptionRequest() {
+        const username = document.getElementById('usernameField').value.trim();
+        const password = document.getElementById('passwordField').value;
+        const outputBox = document.getElementById('resultContainer');
+
+        if (!username || !password) {
+            alert('Please fill out all input text fields.');
+            return;
+        }
+
+        const targetUrl = `/api/crypto/hash?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+
+        fetch(targetUrl)
+            .then(res => {
+                if (!res.ok) {
+                    return res.text().then(text => { throw new Error(text) });
+                }
+                return res.json();
+            })
+            .then(data => {
+                document.getElementById('outUser').innerText = data.username;
+                document.getElementById('outSalt').innerText = data.cryptographicSalt;
+                document.getElementById('outHash').innerText = data.hashedPassword;
+                outputBox.style.display = 'block';
+            })
+            .catch(err => {
+                alert('Security Enforcement: Password must be at least 8 characters long.');
+                outputBox.style.display = 'none';
+            });
+    }
+</script>
+</body>
+</html>
