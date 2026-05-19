@@ -4,10 +4,11 @@
 
 ---
 
-## 🚀 Software Engineering Evolution Matrix
+## 🚀 # Java Engineering & Infrastructure Fundamentals Portfolio
 
-This portfolio demonstrates an evolution from foundational computer science assignments to advanced, multi-module backend cloud microservices using diverse build automation tools and data persistence layers.
-
+A multi-module corporate repository engineered using Java 17 and Apache Maven, demonstrating production-ready backend 
+workflows, multi-system enterprise integrations, automated test validation pipelines, and architectural security 
+patterns.
 
 | Core Foundational Track (Pure Java) | Upgraded Professional Module | Framework / Stack | Build System | Database / Engine |
 | :--- | :--- | :--- | :--- | :--- |
@@ -16,31 +17,45 @@ This portfolio demonstrates an evolution from foundational computer science assi
 | `algorithms.microservices` (Blog Core) | 🌐 **blog_api_maven** | Spring Boot 3.x | 🟦 **Maven (XML)** | Local File H2 SQL |
 | `enterprise.logistics` (Data Mocking) | 📚 **online_library_gradle** | Spring Boot 3.x | 🐘 **Gradle (Kotlin)** | In-Memory RAM H2 |
 | `enterprise.logistics` (Inventory GUI) | 🚀 **inventory_sql_maven** | Spring Boot 3.x | 🟦 **Maven (XML)** | Local File H2 + Datafaker |
+| `gui.security` (Swing Form & Math) | 📦 **ecommerce-catalog** | Spring Boot 3.x | 🟦 **Maven (XML)** | Thread-Safe Concurrent Maps |
+| `gui.security` (Password Match Node) | 🛡️ **security_crypto_maven** | Spring Boot 3.x | 🟦 **Maven (XML)** | Standalone Cryptographic Subsystem |
 
 ---
 
-## 📂 Structural Module Deep-Dive
+## 📦 Active System Architecture Matrix
 
-### 🏦 Banking Ledger Terminal (`banking_ledger_maven`)
-A secure, real-time transactional account accounting microservice mirroring enterprise banking architectures. Features automated calculations for asset volumes, strict currency validation parameters, an exception-handling gate to deny over-drafts, and a responsive data-table ledger streaming historical transaction audits with exact calendar timestamps.
-**Cloud Integration Upgrade:**
-- **Event-Driven Architecture**: Leverages standard HTTP networking protocols to stream transactional payloads out of the local Java environment instantly upon account mutations.
-- **Enterprise Data Routing**: Connected to a Make.com cloud routing fabric, splitting the incoming stream into dual simultaneous processing pipelines.
-- **Data Persistence Ledger**: Automatically structures and appends transaction metadata (exact timestamps, description strings, and calculated values) straight into a remote database ledger.
-- **Threshold Fraud Filtering**: Implements real-time conditional evaluation filters to detect high-value asset movements and automatically deploy targeted priority notification alerts.
+### 1. Enterprise E-Commerce Catalog Service (`ecommerce-catalog`)
+A robust web service designed around standard layered architectural patterns (Controller-Service-Repository) managing inventory assets.
+- **Defensive API Rate Limiting**: Employs a thread-safe sliding window algorithm utilizing `ConcurrentHashMap` to monitor network access metrics. Brute-force scrapers are intercepted and blocked via a custom `RateLimitExceededException` throwing an `HTTP 429 Too Many Requests` state.
+- **SAP Multi-Currency Converter Engine**: Integrates a decoupled financial service tier that maps data arrays on the fly to process live foreign exchange recalculations (USD, EUR, GBP) using Java Stream pipelines.
+- **Dynamic Frontend Dashboard**: A clean web application frontend operating on Port `8085` that processes asynchronous AJAX requests to execute high-speed keyword search matches across data structures.
 
-### 🎮 Retro Arcade Snake Matrix (`snake_game_maven`)
-An interactive web game mapping pure-algorithmic matrix grid navigation mechanics onto an HTML5 canvas layer. When a coordinate collision event registers (Game Over), the browser client fires an asynchronous background `POST` request to stream player initials and score metrics straight into a relational global top-10 leaderboard registry table.
+### 2. Security Access Management Gateway (`security_crypto_maven`)
+A standalone cybersecurity utility module focusing on cryptographic storage protection and data masking.
+- **SHA-256 Cryptographic Subsystem**: Utilizes Java's native `MessageDigest` arrays to permanently transform plain-text authentication tokens into irreversible 64-character hexadecimal security strings.
+- **Randomized Salt Injection**: Leverages cryptographically strong `SecureRandom` number generators to create unique Base64-encoded salt components for every simulation, preventing rainbow-table decoding vectors.
+- **High-Contrast Corporate Interface**: Exposes a responsive, light/dark hybrid dashboard operating on Port `8086` designed to process real-time credential security verifications and simulate login attack diagnostics.
 
-### 🚀 Space Equipment Telemetry Tracker (`inventory_sql_maven`)
-A high-utility telemetry inventory dashboard built to handle high-frequency cargo tracking. Powered by the `Datafaker` engine to automatically generate 50 unique spacecraft components on startup. Includes direct pipeline queries to filter components alphabetically (A-Z) and explicit delete hooks to purge items straight out of physical hard drive rows.
-
-### 📚 Dynamic Mock API Library Engine (`online_library_gradle`)
-A mock data processing engine showcasing automation under the modern Gradle ecosystem using Kotlin scripting. Generates randomized book datasets accessible via clean REST controllers, demonstrating zero-configuration mockup pipelines for fast integration testing.
-
-### 📦 Core University Package Archives (`com.matharsa.*`)
-*   **Enterprise Logistics (`enterprise.logistics`)** – Legacy console accounting ledgers, MVC payroll calculators, and decoupled structural assignments.
-*   **GUI Security Frameworks (`gui.security`)** – Interactive Swing window forms, secure password matching nodes, and layout decoupling patterns.
-*   **Algorithms & Automation (`algorithms.microservices`)** – Multi-dimensional coordinate arrays, backtracking matrix puzzle evaluations, and raw computational logic tracks.
 ---
+
+## 🧪 Quality Assurance & Automation Pipelines
+
+Every module features an independent automated testing tier to enforce strict business rules and input validation constraints before application runtime compilation.
+
+- **System Quality Gate**: Run automated verification tests globally across entire codebase with native Maven lifecycles:
+  ```bash
+  mvn clean test
+  ```
+- **Isolated Module Validation**: Target your cryptographic subsystem assertions specifically by executing a focused pl-project test run:
+  ```bash
+  mvn test -pl security_crypto_maven
+  ```
+
+---
+
+## 📋 Architectural CV Skills Matrix Correlation
+This repository acts as structural evidence for the following technical engineering competencies:
+- **Backend Architecture**: Layered Microservice Design, Component Scanning, Request Interception, Spring Boot Core Framework.
+- **Security & Infrastructure**: Cryptographic Hashing Algorithms, Secure Token Generation, Traffic Throttling, Dependency Lifecycle Management.
+- **Concurrent System Design**: Managing state tracking inside thread-safe memory maps (`ConcurrentHashMap`) to support high-performance enterprise workloads.
 
