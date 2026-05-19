@@ -4,10 +4,12 @@ import com.matharsa.ecommerce.model.Product;
 import com.matharsa.ecommerce.repository.ProductRepository;
 import com.matharsa.ecommerce.security.RateLimiterService;
 import com.matharsa.ecommerce.exception.RateLimitExceededException;
+import com.matharsa.ecommerce.service.PriceConversionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/products")
@@ -15,29 +17,40 @@ public class ProductController {
 
     private final ProductRepository productRepository;
     private final RateLimiterService rateLimiterService;
+    private final PriceConversionService priceConversionService;
 
-    // Dependency injection handles both repositories and security engines smoothly
-    public ProductController(ProductRepository productRepository, RateLimiterService rateLimiterService) {
+    public ProductController(ProductRepository productRepository,
+                             RateLimiterService rateLimiterService,
+                             PriceConversionService priceConversionService) {
         this.productRepository = productRepository;
         this.rateLimiterService = rateLimiterService;
+        this.priceConversionService = priceConversionService;
     }
 
     @GetMapping
     public List<Product> getProducts(
             @RequestParam(required = false) String search,
-            HttpServletRequest request) { // Injects standard HTTP network request context wrapper
+            @RequestParam(required = false, defaultValue = "USD") String currency,
+            HttpServletRequest request) {
 
         String clientIp = request.getRemoteAddr();
 
-        // 🔒 Trigger security evaluation block
         if (!rateLimiterService.isAllowed(clientIp)) {
             throw new RateLimitExceededException("Rate limit exceeded. Maximum 5 requests per 10 seconds allowed.");
         }
 
-        if (search != null && !search.trim().isEmpty()) {
-            return productRepository.search(search);
+        List<Product> products = (search != null && !search.trim().isEmpty()) ?
+                productRepository.search(search) : productRepository.findAll();
+
+        if (!"USD".equalsIgnoreCase(currency)) {
+            return products.stream()
+                    .map(p -> new Product(p.getId(), p.getName(),
+                            priceConversionService.convertPrice(p.getPrice(), currency),
+                            p.getSeoSlug(), p.getTags()))
+                    .collect(Collectors.toList());
         }
-        return productRepository.findAll();
+
+        return products;
     }
 
     @GetMapping("/seo/{slug}")

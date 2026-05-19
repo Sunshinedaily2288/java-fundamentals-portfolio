@@ -30,7 +30,7 @@
             background: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
         }
 
         header {
@@ -53,30 +53,35 @@
             font-size: 13px;
         }
 
-        /* 🔍 Search & Optimization Control Panel */
-        .search-section {
+        /* Control Panel Grid (Search + Currency) */
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 16px;
             background: #f1f5f9;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 30px;
+        }
+
+        .search-section, .currency-section {
             display: flex;
-            gap: 12px;
+            gap: 8px;
             align-items: center;
         }
 
-        .search-input {
-            flex: 1;
+        .search-input, .select-input {
+            width: 100%;
             padding: 12px 16px;
             border: 1px solid var(--border);
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 15px;
+            background: white;
             outline: none;
-            transition: border-color 0.2s;
         }
 
-        .search-input:focus {
+        .search-input:focus, .select-input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
         .btn {
@@ -88,20 +93,12 @@
             cursor: pointer;
             font-size: 15px;
             font-weight: 600;
-            transition: background 0.2s;
         }
 
         .btn:hover { background: var(--primary-hover); }
-        .btn-secondary { background: var(--text-muted); }
-        .btn-secondary:hover { background: #475569; }
 
-        /* 📦 Product Grid Layout */
-        .catalog-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
+        /* Product Cards */
+        .catalog-grid { display: flex; flex-direction: column; gap: 16px; }
         .product-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -109,60 +106,14 @@
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .product-info {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            align-items: center;
         }
 
         .product-name { font-size: 18px; font-weight: 600; color: var(--text-main); }
-
-        /* 🏷️ Tag Styling */
-        .tag-container {
-            display: flex;
-            gap: 6px;
-            margin-top: 4px;
-        }
-
-        .tag-chip {
-            font-size: 11px;
-            font-weight: 600;
-            background: #e2e8f0;
-            color: #475569;
-            padding: 3px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
-
-        /* 🚀 SEO String Badge */
-        .seo-link {
-            font-size: 12px;
-            color: var(--primary);
-            font-family: monospace;
-            background: #eff6ff;
-            padding: 4px 8px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 4px;
-        }
-
-        .product-meta {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 8px;
-        }
-
-        .product-price { color: var(--success); font-size: 20px; font-weight: 700; }
+        .tag-container { display: flex; gap: 6px; margin-top: 6px; }
+        .tag-chip { font-size: 11px; font-weight: 600; background: #e2e8f0; color: #475569; padding: 3px 8px; border-radius: 4px; }
+        .seo-link { font-size: 12px; color: var(--primary); font-family: monospace; margin-top: 6px; }
+        .product-price { color: var(--success); font-size: 22px; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -170,48 +121,55 @@
     <header>
         <div>
             <h1>Enterprise Catalog Dashboard</h1>
-            <p style="color: var(--text-muted); margin: 4px 0 0 0;">Java Backend Engine + Embedded Search & Router Optimization</p>
+            <p style="color: var(--text-muted); margin: 4px 0 0 0;">Java Backend Engine + SAP Multi-Currency Integration Matrix</p>
         </div>
         <div class="status-badge">Gateway Secure</div>
     </header>
 
-    <!-- 🔍 Search Feature Controls -->
-    <section class="search-section">
-        <input type="text" id="searchInput" class="search-input" placeholder="Search catalog by product name or tags (e.g. 'java', 'sap')...">
-        <button class="btn" onclick="executeSearch()">Search</button>
-        <button class="btn btn-secondary" onclick="clearSearch()">Reset</button>
-    </section>
+    <!-- 🔍 Controls Interface Section -->
+    <div class="controls-grid">
+        <div class="search-section">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search parameters (e.g. 'java')...">
+            <button class="btn" onclick="executeSearchAndCurrency()">Apply</button>
+        </div>
+        <div class="currency-section">
+            <!-- 🚀 SAP Multi-Currency Selection Form Element -->
+            <select id="currencyInput" class="select-input" onchange="executeSearchAndCurrency()">
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+            </select>
+        </div>
+    </div>
 
     <main>
-        <h2 style="font-size: 20px; font-weight: 600; margin-bottom: 16px;">Available Assets Matrix</h2>
-        <div class="catalog-grid" id="catalogContainer">
-            <!-- Dynamic cards populated via JavaScript async pipeline -->
-        </div>
+        <div class="catalog-grid" id="catalogContainer"></div>
     </main>
 </div>
 
 <script>
-    // Automatic runtime initialization
-    window.onload = () => fetchCatalogData('/api/products');
+    window.onload = () => executeSearchAndCurrency();
 
-    function executeSearch() {
+    function executeSearchAndCurrency() {
         const query = document.getElementById('searchInput').value.trim();
-        if (!query) {
-            fetchCatalogData('/api/products');
-            return;
+        const currency = document.getElementById('currencyInput').value;
+
+        // 🔗 Combines search parameters and currency request tags onto a single REST url line
+        let targetUrl = `/api/products?currency=${currency}`;
+        if (query) {
+            targetUrl += `&search=${encodeURIComponent(query)}`;
         }
-        // Maps directly to your Controller's @RequestParam search filter
-        fetchCatalogData(`/api/products?search=${encodeURIComponent(query)}`);
+
+        fetchCatalogData(targetUrl, currency);
     }
 
-    function clearSearch() {
-        document.getElementById('searchInput').value = '';
-        fetchCatalogData('/api/products');
-    }
-
-    function fetchCatalogData(targetUrl) {
+    function fetchCatalogData(targetUrl, currentCurrency) {
         const container = document.getElementById('catalogContainer');
-        container.innerHTML = '<p style="color: var(--text-muted);">Syncing runtime queries...</p>';
+        container.innerHTML = '<p style="color: var(--text-muted);">Syncing asset matrix configurations...</p>';
+
+        // Map standard currency symbols for layout formatting
+        const currencySymbols = { 'USD': '$', 'EUR': '€', 'GBP': '£' };
+        const symbol = currencySymbols[currentCurrency] || '$';
 
         fetch(targetUrl)
             .then(res => { if (!res.ok) throw new Error(); return res.json(); })
@@ -222,19 +180,18 @@
                     return;
                 }
                 products.forEach(p => {
-                    // Generate tag layout array string chunks
                     const tagsHtml = p.tags.map(tag => `<span class="tag-chip">${tag}</span>`).join('');
-
                     const card = document.createElement('div');
                     card.className = 'product-card';
                     card.innerHTML = `
-                        <div class="product-info">
+                        <div>
                             <div class="product-name">${p.name}</div>
                             <div class="tag-container">${tagsHtml}</div>
                             <div class="seo-link">🔗 slug: /seo/${p.seoSlug}</div>
                         </div>
-                        <div class="product-meta">
-                            <div class="product-price">$${p.price.toFixed(2)}</div>
+                        <div>
+                            <!-- Displays recalculation matrix outputs straight out of the Java Service layers -->
+                            <div class="product-price">${symbol}${p.price.toFixed(2)}</div>
                         </div>
                     `;
                     container.appendChild(card);
