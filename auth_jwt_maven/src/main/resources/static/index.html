@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptographic Token Broker Console</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; }
+        .card { background: #1e293b; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); width: 100%; max-width: 500px; border: 1px solid #334155; }
+        h2 { margin-top: 0; color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 12px; font-weight: 600; }
+        .form-group { margin-bottom: 16px; }
+        label { display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px; color: #94a3b8; }
+        input { width: 100%; padding: 12px; background: #0f172a; border: 1px solid #475569; border-radius: 6px; box-sizing: border-box; font-size: 14px; color: white; }
+        input:focus { border-color: #38bdf8; outline: none; }
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        button { flex: 1; padding: 12px; font-size: 14px; font-weight: 600; border-radius: 6px; cursor: pointer; border: none; transition: all 0.2s; }
+        .btn-primary { background: #0284c7; color: white; }
+        .btn-primary:hover { background: #0369a1; }
+        .btn-success { background: #16a34a; color: white; display: none; }
+        .btn-success:hover { background: #15803d; }
+        .token-box { margin-top: 20px; background: #0f172a; border: 1px dashed #38bdf8; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 11px; word-break: break-all; max-height: 90px; overflow-y: auto; color: #38bdf8; display: none; }
+        #status { margin-top: 16px; padding: 12px; border-radius: 6px; display: none; font-size: 14px; font-weight: 500; text-align: center; }
+        .info { background-color: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2); }
+        .success { background-color: rgba(34, 197, 94, 0.1); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.2); }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>JWT Identity Token Broker</h2>
+    <div class="form-group">
+        <label for="username">Username Identity</label>
+        <input type="text" id="username" value="developer_matharsa" required>
+    </div>
+
+    <div class="btn-group">
+        <button id="loginBtn" class="btn-primary" onclick="requestToken()">1. Authenticate & Issue Token</button>
+        <button id="verifyBtn" class="btn-success" onclick="verifyToken()">2. Validate Bearer Token</button>
+    </div>
+
+    <div id="tokenDisplay" class="token-box"></div>
+    <div id="status"></div>
+</div>
+
+<script>
+    let savedToken = "";
+
+    async function requestToken() {
+        const username = document.getElementById('username').value;
+        const statusDiv = document.getElementById('status');
+        const tokenBox = document.getElementById('tokenDisplay');
+        const verifyBtn = document.getElementById('verifyBtn');
+
+        try {
+            // Making form-encoded request matching our @RequestParam configuration
+            const response = await fetch(`/api/v1/auth/login?username=${encodeURIComponent(username)}`, {
+                method: 'POST'
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                savedToken = data.token;
+
+                tokenBox.innerText = `[JWT Issued Successfully]:\n\n${savedToken}`;
+                tokenBox.style.display = "block";
+                verifyBtn.style.display = "block";
+
+                statusDiv.className = 'info';
+                statusDiv.innerText = '✓ Token generated & signed with SHA-256 HMAC key!';
+                statusDiv.style.display = 'block';
+            } else {
+                throw new Error();
+            }
+        } catch (e) {
+            statusDiv.className = 'error';
+            statusDiv.innerText = '✕ Authentication handshake failed.';
+            statusDiv.style.display = 'block';
+        }
+    }
+
+    async function verifyToken() {
+        const statusDiv = document.getElementById('status');
+
+        try {
+            const response = await fetch('/api/v1/auth/verify', {
+                method: 'GET',
+                headers: { 'Authorization': `Bearer ${savedToken}` }
+            });
+
+            if (response.ok) {
+                const profile = await response.json();
+                statusDiv.className = 'success';
+                statusDiv.innerHTML = `
+                    <strong>🔒 Cryptographic Signature Verified!</strong><br>
+                    <span style="font-size:12px; color:#cbd5e1;">
+                        Subject: ${profile.subject}<br>
+                        Assigned Role: ${profile.role}<br>
+                        Account Tier: ${profile.tier}
+                    </span>
+                `;
+            } else {
+                statusDiv.innerHTML = '✕ Signature verification rejected.';
+            }
+        } catch (e) {
+            statusDiv.innerHTML = '✕ Identity check processing error.';
+        }
+    }
+</script>
+</body>
+</html>
