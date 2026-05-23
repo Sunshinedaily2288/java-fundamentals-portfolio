@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vending Machine Suite</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 750px; margin: 40px auto; text-align: center; background: #f8f9fa; color: #333; }
+        .screen { background: #1e1e1e; color: #32cd32; padding: 18px; font-family: 'Courier New', monospace; font-size: 1.3rem; border-radius: 6px; margin-bottom: 25px; box-shadow: inset 0 0 10px #000; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 25px; }
+        button { padding: 15px; font-size: 1rem; font-weight: 600; cursor: pointer; border: none; border-radius: 6px; transition: transform 0.1s, background 0.2s; }
+        button:active { transform: scale(0.97); }
+        .coin-btn { background: #28a745; color: white; }
+        .coin-btn:hover { background: #218838; }
+        .item-btn { background: #007bff; color: white; }
+        .item-btn:hover { background: #0069d9; }
+        .restock-btn { background: #6c757d; color: white; }
+        .restock-btn:hover { background: #5a6268; }
+        .refund-btn { background: #dc3545; color: white; width: 100%; margin-bottom: 25px; font-size: 1.1rem; }
+        .refund-btn:hover { background: #bd2130; }
+        .db-panel { margin-top: 30px; padding: 20px; background: #fff; border: 1px solid #dee2e6; border-radius: 8px; text-align: left; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; border-bottom: 1px solid #dee2e6; text-align: center; }
+        th { background: #e9ecef; color: #495057; font-weight: 600; }
+        .revenue-badge { background: #0D47A1; color: white; padding: 15px; font-size: 1.2rem; font-weight: bold; border-radius: 6px; display: block; margin-top: 20px; text-align: center; }
+        .breakdown-box { background: #f1f3f5; border: 1px solid #ced4da; padding: 15px; border-radius: 6px; margin-top: 15px; }
+        ul { list-style-type: none; padding: 0; margin: 0; }
+        li { padding: 8px 0; border-bottom: 1px solid #dee2e6; font-size: 1.05rem; display: flex; justify-content: space-between; }
+        li:last-child { border: none; }
+        h3 { border-left: 4px solid #007bff; padding-left: 10px; text-align: left; margin-top: 30px; color: #495057; }
+    </style>
+</head>
+<body>
+<h1>📟 Vending Engine UI Pipeline</h1>
+<div class="screen" id="display">Balance: 0¢ | Status: Ready</div>
+
+<!-- 1. COINS SUB-SECTION -->
+<h3>🪙 1. Coins Input Pipeline</h3>
+<div class="grid">
+    <button class="coin-btn" onclick="insertCoin('NICKEL')">Nickel (5¢)</button>
+    <button class="coin-btn" onclick="insertCoin('DIME')">Dime (10¢)</button>
+    <button class="coin-btn" onclick="insertCoin('QUARTER')">Quarter (25¢)</button>
+</div>
+<button class="coin-btn" style="width: 100%; background: #1e7e34;" onclick="insertCoin('DOLLAR')">Dollar Bill (100¢)</button>
+
+<!-- 2. ITEMS SELECTION SUB-SECTION -->
+<h3>🛒 2. Select Items Engine</h3>
+<div class="grid">
+    <button class="item-btn" onclick="purchase('A1')">A1: Cola (75¢)</button>
+    <button class="item-btn" onclick="purchase('B1')">B1: Chips ($1.10)</button>
+    <button class="item-btn" onclick="purchase('C1')">C1: Candy (90¢)</button>
+</div>
+<button class="refund-btn" onclick="refund()">Dispense Change / Terminate Transaction</button>
+
+<!-- 3. LIVE RELATIONAL INVENTORY & SALES LEDGER -->
+<div class="db-panel">
+    <h3 style="margin-top:0; border-left: 4px solid #28a745;">📊 3. Live Database Inventory &amp; Sales Logs</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>SKU Code</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Current Stock</th>
+            <th>Units Sold</th>
+            <th>Gross Sales Revenue</th>
+        </tr>
+        </thead>
+        <tbody id="db-rows">
+        <!-- Data rows inject here -->
+        </tbody>
+    </table>
+
+    <!-- 4. REARRANGED RESTOCK PANEL WITH HISTORY COUNTERS -->
+    <h3 style="border-left: 4px solid #6c757d;">🔧 4. Admin Physical Restock Log &amp; Control</h3>
+    <div class="grid">
+        <button class="restock-btn" onclick="restock('A1')">Restock Cola (+5)</button>
+        <button class="restock-btn" onclick="restock('B1')">Restock Chips (+5)</button>
+        <button class="restock-btn" onclick="restock('C1')">Restock Candy (+5)</button>
+    </div>
+    <table style="margin-top: 10px;">
+        <thead>
+        <tr>
+            <th>SKU</th>
+            <th>Historical Lifetime Restocked Units Amount</th>
+        </tr>
+        </thead>
+        <tbody id="restock-rows">
+        <!-- Restock counters inject here -->
+        </tbody>
+    </table>
+
+    <!-- 5. TOTAL TRANSACTION ITEMIZATION & REVENUE SUMMARY -->
+    <h3 style="border-left: 4px solid #0D47A1;">📈 5. Total Machine Sales Itemization List</h3>
+    <div class="breakdown-box">
+        <ul id="breakdown-list">
+            <!-- Itemized breakdown list loops here -->
+        </ul>
+    </div>
+    <div class="revenue-badge" id="revenue-display">Total Machine Transaction Sales: 0¢</div>
+</div>
+
+<script>
+    window.onload = refreshDatabaseView;
+
+    async function refreshDatabaseView() {
+        const res = await fetch('/api/vending/inventory');
+        const data = await res.json();
+
+        // Render Section 3: Live Database Table
+        let tableHtml = '';
+        let restockHtml = '';
+        for (const [sku, item] of Object.entries(data.products)) {
+            tableHtml += `<tr>
+                <td><strong>${sku}</strong></td>
+                <td>${item.name}</td>
+                <td>${item.price}</td>
+                <td style="color: ${item.stock === 0 ? '#dc3545' : '#28a745'}; font-weight: bold;">${item.stock} units</td>
+                <td style="font-weight: 500;">${item.sold} items</td>
+                <td style="color: #0056b3; font-weight: bold;">${item.earnings}</td>
+            </tr>`;
+
+            // Render Section 4: Restock metric rows
+            restockHtml += `<tr>
+                <td><strong>${sku} (${item.name})</strong></td>
+                <td style="color: #6c757d; font-weight: bold;">+ ${item.totalRestocked} logged</td>
+            </tr>`;
+        }
+        document.getElementById('db-rows').innerHTML = tableHtml;
+        document.getElementById('restock-rows').innerHTML = restockHtml;
+
+        // Render Section 5: Itemized Product Sales Breakdown List
+        let listHtml = '';
+        for (const [name, breakdownText] of Object.entries(data.breakdownList)) {
+            listHtml += `<li><strong>${name}</strong> <span>${breakdownText}</span></li>`;
+        }
+        document.getElementById('breakdown-list').innerHTML = listHtml;
+
+        // Render Global Revenue Summary Banner
+        document.getElementById('revenue-display').innerText = "💸 Total Machine Sales Combined Revenue: " + data.totalRevenue;
+    }
+
+    async function insertCoin(coin) {
+        const res = await fetch(`/api/vending/insert?coin=${coin}`, { method: 'POST' });
+        document.getElementById('display').innerText = await res.text();
+        refreshDatabaseView();
+    }
+    async function purchase(sku) {
+        const res = await fetch(`/api/vending/purchase?sku=${sku}`, { method: 'POST' });
+        document.getElementById('display').innerText = await res.text();
+        refreshDatabaseView();
+    }
+    async function refund() {
+        const res = await fetch('/api/vending/refund', { method: 'POST' });
+        document.getElementById('display').innerText = await res.text();
+        refreshDatabaseView();
+    }
+    async function restock(sku) {
+        const res = await fetch(`/api/vending/restock?sku=${sku}&amount=5`, { method: 'POST' });
+        document.getElementById('display').innerText = await res.text();
+        refreshDatabaseView();
+    }
+</script>
+</body>
+</html>
