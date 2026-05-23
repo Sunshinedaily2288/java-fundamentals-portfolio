@@ -28,4 +28,9 @@ Every microservice inside this monorepo is fully isolated and operates on a dedi
 * **Core Concepts**: Non-blocking concurrent processing, High-throughput thread pooling (`ExecutorService`), Asynchronous producers/consumers via `BlockingQueue`.
 * **UI Gateway**: Interactive live dispatch console running on **Port 8086**.
 
+### 4. 📟 Full-Stack Transaction Vending & Accounting Pipeline (`vending_engine_maven`)
+* **Build System**: Maven (Spring Boot 3.2, State Management)
+* **Core Concepts**: Singleton design patterns, In-Memory mock database architectures, Algorithmic financial change calculation, Real-time state-driven data updates.
+* **UI Gateway**: Interactive live streaming stock, restocking, and sales audit interface running on **Port 8089**.
+
 ---
