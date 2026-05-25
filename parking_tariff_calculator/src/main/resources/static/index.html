@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Garage Tariff Engine</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f1f5f9; color: #0f172a; padding: 30px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .header {
+            background-color: #1e293b; color: white; padding: 20px 30px;
+            border-radius: 16px; display: flex; justify-content: space-between;
+            align-items: center; margin-bottom: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        .header h1 { font-size: 22px; font-weight: 800; }
+        .port-badge { background-color: #ef4444; padding: 6px 12px; border-radius: 8px; font-family: monospace; font-size: 14px; font-weight: bold; }
+
+        .grid-layout { display: grid; grid-template-columns: 350px 1fr; gap: 30px; }
+
+        /* Interactive Control Panel styling */
+        .card {
+            background-color: white; padding: 24px; border-radius: 16px;
+            border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); height: fit-content;
+        }
+        .card h2 { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1e293b; text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 12px; font-weight: 600; color: #64748b; margin-bottom: 6px; }
+        .form-control {
+            width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #cbd5e1;
+            font-size: 14px; outline: none; text-transform: uppercase;
+        }
+        .form-control:focus { border-color: #3b82f6; }
+        .btn {
+            width: 100%; background-color: #3b82f6; color: white; border: none;
+            padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 700;
+            cursor: pointer; transition: background 0.15s;
+        }
+        .btn:hover { background-color: #2563eb; }
+
+        /* Dynamic Listing Panel styling */
+        .list-panel { display: flex; flex-direction: column; gap: 20px; }
+        .table-wrapper { background-color: white; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+        th { background-color: #f8fafc; padding: 14px 20px; font-weight: 700; color: #475569; border-bottom: 1px solid #e2e8f0; }
+        td { padding: 14px 20px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+
+        .badge { font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 6px; background-color: #f1f5f9; }
+        .badge-active { background-color: #dcfce7; color: #15803d; }
+
+        .action-btn {
+            background-color: #ef4444; color: white; border: none; padding: 6px 12px;
+            border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer;
+        }
+        .action-btn:hover { background-color: #dc2626; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>🚗 SMART PARKING TARIFF &amp; BILLING ENGINE</h1>
+        <div class="port-badge">PORT: 8089</div>
+    </div>
+
+    <div class="grid-layout">
+        <!-- LEFT CONTROL: Entry Gate Registration -->
+        <div class="card">
+            <h2>Check-In Gate</h2>
+            <form id="entryForm" onsubmit="registerEntry(event)">
+                <div class="form-group">
+                    <label>VEHICLE LICENSE PLATE</label>
+                    <input type="text" id="licensePlate" class="form-control" placeholder="W-12345X" required>
+                </div>
+                <button type="submit" class="btn">🎫 ISSUE TICKET</button>
+            </form>
+        </div>
+
+        <!-- RIGHT VIEWS: Active Ledger & Historical Log Streams -->
+        <div class="list-panel">
+            <div class="table-wrapper">
+                <div style="padding: 16px 20px; font-weight: bold; border-bottom: 1px solid #e2e8f0; background:#f8fafc;">📍 Active Vehicles Inside Garage</div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>License Plate</th>
+                        <th>Entry Time</th>
+                        <th>Current Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="activeVehiclesTable"></tbody>
+                </table>
+            </div>
+
+            <div class="table-wrapper">
+                <div style="padding: 16px 20px; font-weight: bold; border-bottom: 1px solid #e2e8f0; background:#f8fafc;">📜 Billing History Log Ledger</div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>License Plate</th>
+                        <th>Entry Time</th>
+                        <th>Exit Time</th>
+                        <th>Total Tariff Fee</th>
+                    </tr>
+                    </thead>
+                    <tbody id="historyTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
