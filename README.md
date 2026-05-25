@@ -1,6 +1,6 @@
 # ☕ Java Fundamentals Portfolio
 ### Continuous Engineering & Structural Logic Portfolio
-🔗 [GitHub Profile Profile](https://github.com) | ✉️ sunshinedaily2288@gmail.com
+🔗 [GitHub Profile](https://github.com) | ✉️ sunshinedaily2288@gmail.com
 
 ---
 
@@ -31,6 +31,9 @@ Every microservice inside this monorepo is fully isolated and operates on a dedi
 ### 4. 📟 Full-Stack Transaction Vending & Accounting Pipeline (`vending_engine_maven`)
 * **Build System**: Maven (Spring Boot 3.2, State Management)
 * **Core Concepts**: Singleton design patterns, In-Memory mock database architectures, Algorithmic financial change calculation, Real-time state-driven data updates.
-* **UI Gateway**: Interactive live streaming stock, restocking, and sales audit interface running on **Port 8089**.
+* **UI Gateway**: Interactive live streaming stock, restocking, and sales audit interface running on **Port 8091**.
 
----
+### 5. 🛠️ Relational Scrum Task & Incident Tracker (`dev_ticket_board`)
+* **Build System**: Maven (Spring Boot 3.2, Data JPA)
+* **Core Concepts**: Relational Database Constraints (`@ManyToOne` Foreign Keys), Transactional REST Lifecycle Routing (`GET`, `POST`, `PATCH`, `DELETE`), Dynamic DTO Data Translators, Automatic Database Seeding.
+* **UI Gateway**: Interactive, single-page Jira-style workflow board running on **Port 8092**.
