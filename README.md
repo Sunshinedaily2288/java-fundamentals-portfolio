@@ -37,3 +37,9 @@ Every microservice inside this monorepo is fully isolated and operates on a dedi
 * **Build System**: Maven (Spring Boot 3.2, Data JPA)
 * **Core Concepts**: Relational Database Constraints (`@ManyToOne` Foreign Keys), Transactional REST Lifecycle Routing (`GET`, `POST`, `PATCH`, `DELETE`), Dynamic DTO Data Translators, Automatic Database Seeding.
 * **UI Gateway**: Interactive, single-page Jira-style workflow board running on **Port 8092**.
+
+### 6. 🛡️ API Throttle & Rate Limiter Shield (`api_rate_limiter`)
+* **Build System**: Maven (Spring Boot 3.2)
+* **Core Concepts**: Thread-safe Token Bucket traffic mitigation, high-throughput memory state concurrency (`ConcurrentHashMap`), custom HTTP telemetry status interception (`HTTP 429`).
+* **UI Gateway**: High-visibility enterprise light-theme traffic testing console running on **Port 8087**.
+
