@@ -38,3 +38,8 @@ bin/
 # Generated Financial Artifacts and Receipts
 receipt_emp_*.txt
 **/target/
+
+.idea/
+*.iml
+.gradle/
+build/

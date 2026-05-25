@@ -2,25 +2,56 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="maven.blog.platform" />
+        <module name="parking_tariff_calculator" />
+        <module name="security_audit_logger_maven" />
+        <module name="auth_jwt_maven" />
+        <module name="dev_ticket_board" />
         <module name="inventory_sql_maven" />
-        <module name="Project11.Blog.Platform" />
         <module name="snake_game_maven" />
+        <module name="maven.blog.platform" />
+        <module name="api_rate_limiter" />
+        <module name="banking_ledger_maven" />
+        <module name="order_analytics_sql" />
+        <module name="Project11.Blog.Platform" />
+        <module name="security_crypto_maven" />
+        <module name="vending_engine_maven" />
+        <module name="ecommerce-catalog" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chat_room_websocket" target="17" />
+      <module name="ecommerce_catalogue_maven" target="17" />
+      <module name="geospatial_map_tracker_maven" target="1.8" />
+      <module name="security.model" target="26" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api_rate_limiter" options="-parameters" />
+      <module name="auth_jwt_maven" options="-parameters" />
+      <module name="banking_ledger_maven" options="-parameters" />
+      <module name="chat_room_websocket" options="-parameters" />
+      <module name="dev_ticket_board" options="-parameters" />
+      <module name="ecommerce-catalog" options="-parameters" />
       <module name="inventory_sql_maven" options="-parameters" />
       <module name="maven.blog.platform" options="-parameters" />
+      <module name="notification_service_gradle" options="-parameters" />
+      <module name="notification_service_gradle.main" options="-parameters" />
+      <module name="notification_service_gradle.test" options="-parameters" />
       <module name="online_library_gradle" options="-parameters" />
       <module name="online_library_gradle.main" options="-parameters" />
       <module name="online_library_gradle.test" options="-parameters" />
+      <module name="order_analytics_sql" options="-parameters" />
+      <module name="parking_tariff_calculator" options="-parameters" />
+      <module name="security_audit_logger_maven" options="-parameters" />
+      <module name="security_crypto_maven" options="-parameters" />
       <module name="snake_game_maven" options="-parameters" />
+      <module name="vending_engine_maven" options="-parameters" />
     </option>
   </component>
 </project>

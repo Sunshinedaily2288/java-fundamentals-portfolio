@@ -3,11 +3,38 @@
   <component name="Encoding">
     <file url="file://$APPLICATION_HOME_DIR$/bin/src/main/java" charset="UTF-8" />
     <file url="file://$APPLICATION_HOME_DIR$/bin/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/blog_api_maven/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/blog_api_maven/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/inventory_sql_maven/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/inventory_sql_maven/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/snake_game_maven/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/snake_game_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-desktop/snake_game_maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-desktop/snake_game_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/api_rate_limiter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/api_rate_limiter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/blog_api_maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/blog_api_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/dev_ticket_board/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/dev_ticket_board/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/ecommerce-catalog/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/ecommerce-catalog/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/order_analytics_sql/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/order_analytics_sql/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/parking_tariff_calculator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/parking_tariff_calculator/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/vending_engine_maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps-web-services/vending_engine_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chat_room_websocket/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core-security-audits/auth_jwt_maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core-security-audits/auth_jwt_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core-security-audits/security_audit_logger_maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core-security-audits/security_audit_logger_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core-security-audits/security_crypto_maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core-security-audits/security_crypto_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data-tier-modules/banking_ledger_maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data-tier-modules/banking_ledger_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data-tier-modules/inventory_sql_maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data-tier-modules/inventory_sql_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ecommerce_catalogue_maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ecommerce_catalogue_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/geospatial_map_tracker_maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/geospatial_map_tracker_maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security.model/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security.model/src/main/resources" charset="UTF-8" />
   </component>
 </project>

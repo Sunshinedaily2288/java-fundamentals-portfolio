@@ -8,10 +8,34 @@
         <option value="$PROJECT_DIR$/inventory_sql_maven/pom.xml" />
         <option value="$PROJECT_DIR$/blog_api_maven/pom.xml" />
         <option value="$PROJECT_DIR$/snake_game_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/banking_ledger_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/geospatial_map_tracker/pom.xml" />
+        <option value="$PROJECT_DIR$/geospatial_map_tracker_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/ecommerce_catalogue_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/ecommerce-catalog/pom.xml" />
+        <option value="$PROJECT_DIR$/security.model/pom.xml" />
+        <option value="$PROJECT_DIR$/security_crypto_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/auth_jwt_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/order_analytics_sql/pom.xml" />
+        <option value="$PROJECT_DIR$/security-audit-logger/pom.xml" />
+        <option value="$PROJECT_DIR$/security_audit_logger_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/vending_engine_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/chat_room_websocket/pom.xml" />
+        <option value="$PROJECT_DIR$/dev_ticket_board/pom.xml" />
+        <option value="$PROJECT_DIR$/parking_tariff_calculator/pom.xml" />
+        <option value="$PROJECT_DIR$/api_rate_limiter/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/chat_room_websocket/pom.xml" />
+        <option value="$PROJECT_DIR$/ecommerce_catalogue_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/geospatial_map_tracker_maven/pom.xml" />
+        <option value="$PROJECT_DIR$/security.model/pom.xml" />
+      </set>
+    </option>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="openjdk-26" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_25" project-jdk-name="ms-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

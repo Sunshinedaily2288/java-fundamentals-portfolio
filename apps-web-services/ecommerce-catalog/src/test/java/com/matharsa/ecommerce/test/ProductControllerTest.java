@@ -21,7 +21,7 @@ public class ProductControllerTest {
 
     @Test
     public void testGetCatalogReturnsSuccessAndData() throws Exception {
-        // Checks index 0 of the array returned by the controller
+        // Checks index 0 of the array returned by the repository
         mockMvc.perform(get("/api/products"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].name").value("Enterprise Java Book"));
