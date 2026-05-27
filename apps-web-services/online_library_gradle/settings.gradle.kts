@@ -1,1 +1,0 @@
-rootProject.name = "online_library_gradle"
