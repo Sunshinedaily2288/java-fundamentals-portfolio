@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.matharsa'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // 🐘 Core Spring Boot Web libraries directly added
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.5'
+}
+
+test {
+    useJUnitPlatform()
+}
