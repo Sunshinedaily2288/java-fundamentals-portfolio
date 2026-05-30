@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matharsa Weather</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            width: 380px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+            color: #ffffff;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .badge {
+            background-color: #22c55e;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input {
+            flex: 1;
+            padding: 12px;
+            background-color: #334155;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            color: white;
+            font-size: 14px;
+        }
+        input:focus {
+            outline: none;
+            border-color: #38bdf8;
+        }
+        button {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            font-weight: bold;
+            padding: 0 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #7dd3fc;
+        }
+        .display-area {
+            background-color: #0f172a;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #1e293b;
+        }
+        .error-text {
+            color: #ef4444;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        .weather-info {
+            font-size: 16px;
+        }
+        .temp {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 5px 0;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="title">🌦️ My Weather</div>
+    <div class="badge">● LIVE DATA STREAM</div>
+
+    <div class="search-box">
+        <input type="text" id="cityInput" value="Vienna" placeholder="Enter city...">
+        <button onclick="fetchWeather()">Search</button>
+    </div>
+
+    <div class="display-area" id="displayArea">
+        <div class="weather-info">Search a city to load stream...</div>
+    </div>
+</div>
+
+<script>
+    async function fetchWeather() {
+        const city = document.getElementById('cityInput').value.trim();
+        const displayArea = document.getElementById('displayArea');
+
+        if(!city) return;
+
+        displayArea.innerHTML = "Loading data stream...";
+
+        try {
+            const response = await fetch(`/api/weather?city=${encodeURIComponent(city)}`);
+            const data = await response.json();
+
+            if (data.success) {
+                displayArea.innerHTML = `
+                    <div class="weather-info">
+                        <strong>${data.city}</strong>
+                        <div class="temp">${data.temperature}°C</div>
+                        <div style="color: #94a3b8; font-size: 13px;">Wind: ${data.windspeed} km/h</div>
+                    </div>
+                `;
+            } else {
+                displayArea.innerHTML = `<span class="error-text">Failed fetching data: ${data.error}</span>`;
+            }
+        } catch (err) {
+            displayArea.innerHTML = `<span class="error-text">Failed fetching data: Check backend pipeline.</span>`;
+        }
+    }
+
+    window.onload = fetchWeather;
+</script>
+
+</body>
+</html>
